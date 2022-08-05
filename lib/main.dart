@@ -8,10 +8,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  var count = 0.obs;
-  void increment() {
-    count++;
-  }
+  // var count = 0.obs;
+  // void increment() {
+  //   count++;
+  // }
 
   //var student = Student();
   //final student = Student(name: "Md.Abul Hasmat", age: 26).obs;
@@ -32,30 +32,44 @@ class MyApp extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Obx(() => Text("Count value is $count")),
-                SizedBox(
-                  height: 20,
-                ),
-                //Obx(() => Text("Name is ${student.value.name}")),
-                Obx(() => Text("Name is ${myController.student.value.name}")),
+                GetX<MyController>(
+                    //init: MyController(),
+                    builder: (controller) {
+                  return Text("This value is ${myController.count}");
+                }),
+
                 ElevatedButton(
                     onPressed: () {
-                      increment();
+                      //Get.find<MyController>().increment();
+                      myController.increment();
                     },
                     child: Text("Increment")),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      //student.name.value = student.name.value.toUpperCase();
-                      // student.update((student) {
-                      //   student?.name = student.name.toString().toUpperCase();
-                      // });
-                      //myController.convertToUppercase();
-                      myController.ConvertToUpperCase();
-                    },
-                    child: Text("Upper")),
+
+                // Obx(() => Text("Count value is $count")),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // //Obx(() => Text("Name is ${student.value.name}")),
+                // Obx(() => Text("Name is ${myController.student.value.name}")),
+                // ElevatedButton(
+                //     onPressed: () {
+                //       increment();
+                //     },
+                //     child: Text("Increment")),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // ElevatedButton(
+                //     onPressed: () {
+                //       //student.name.value = student.name.value.toUpperCase();
+                //       // student.update((student) {
+                //       //   student?.name = student.name.toString().toUpperCase();
+                //       // });
+                //       //myController.convertToUppercase();
+                //       myController.ConvertToUpperCase();
+                //     },
+                //     child: Text("Upper")
+                //     ),
               ],
             ),
           ),

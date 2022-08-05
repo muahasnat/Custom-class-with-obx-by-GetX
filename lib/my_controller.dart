@@ -7,10 +7,15 @@ class MyController extends GetxController {
   //   student.name.value = student.name.value.toUpperCase();
   // }
 
-  var student = Student(name: "Abul Hasnat", age: 26).obs;
-  void ConvertToUpperCase() {
-    student.update((Student) {
-      Student?.name = Student.name.toString().toUpperCase();
-    });
+  // var student = Student(name: "Abul Hasnat", age: 26).obs;
+  // void ConvertToUpperCase() {
+  //   student.update((Student) {
+  //     Student?.name = Student.name.toString().toUpperCase();
+  //   });
+  // }
+
+  var count = 0.obs;
+  void increment() {
+    count++;
   }
 }
